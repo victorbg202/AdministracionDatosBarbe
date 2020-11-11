@@ -1,7 +1,7 @@
 <form name="formProductos" id="formProductos" method="POST">
   <h1><?= $titulo; ?></h1>
   <input name="id" type="hidden" value="<?=$p->getId()?>">
-  <label>nombre:</label><br>
+ 
     <div class="form-group">
       <label >Nombre:</label>
       <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Producto 1">

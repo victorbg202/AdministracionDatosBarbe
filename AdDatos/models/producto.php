@@ -58,7 +58,7 @@
         //
         public function Insertar(Producto $p) {
             try {
-                $consulta="INSERT INTO productos(nombre, descripcion, precio) VALUES (?,?,?);";
+                $consulta="INSERT INTO productos (nombre, descripcion, precio) VALUES ('?','?',?);";
                 $this->pdo->prepare($consulta)->execute(array(
                     $p->getNombre(),
                     $p->getDesc(),

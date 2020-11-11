@@ -43,7 +43,6 @@
             $this->modelo->Actualizar($p) : 
             //Falso
             $this->modelo->Insertar($p);
-
             header("location:?c=producto");
         }
 
