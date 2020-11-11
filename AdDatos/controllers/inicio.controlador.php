@@ -9,9 +9,9 @@
         }
 
         public function Inicio() {
-            require_once 'views/header.php';
-            require_once "views/inicio/principal.php";
-            require_once 'views/footer.php';
+            require_once 'views/admin/header.php';
+            require_once "views/admin/inicio/principal.php";
+            require_once 'views/admin/footer.php';
         }
     }
 

@@ -11,9 +11,9 @@
 
 
         public function Inicio() {
-            require_once "views/header.php";
-            require_once "views/productos/index.php";
-            require_once "views/footer.php";
+            require_once "views/admin/header.php";
+            require_once "views/admin/productos/index.php";
+            require_once "views/admin/footer.php";
         }
 
         public function FormCrear() {
@@ -24,9 +24,9 @@
                 $p = $this->modelo->Obtener($_GET['id']);
             }
 
-            require_once "views/header.php";
-            require_once "views/productos/form.php";
-            require_once "views/footer.php";
+            require_once "views/admin/header.php";
+            require_once "views/admin/productos/form.php";
+            require_once "views/admin/footer.php";
         }
 
         public function Guardar() {
