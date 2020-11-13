@@ -1,9 +1,6 @@
 <div class="container">
   <h1>Gestion de productos</h1>
   <div class="card">
-    <div class="card-header">
-      Litsa de productos
-    </div>
     <table class="table" id="tablaProductos">
       <thead class="thead-dark">
         <tr>
@@ -33,4 +30,3 @@
     </div>
   </div>
 </div>
-

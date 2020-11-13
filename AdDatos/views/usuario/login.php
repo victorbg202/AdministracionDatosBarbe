@@ -14,6 +14,7 @@
         <div class="signin-signup">
           <form class="sign-in-form" action="php/login.php" method="GET">
             <h2 class="title texto-naranja">Iniciar sesion</h2>
+            <a class="nav-item nav-link" href="?c=producto">Productos</a>
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input type="text" placeholder="Nombre de usuario" name="nombre"/>

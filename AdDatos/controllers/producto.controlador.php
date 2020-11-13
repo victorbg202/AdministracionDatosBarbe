@@ -12,7 +12,7 @@
 
         public function Inicio() {
             require_once "views/admin/header.php";
-            require_once "views/admin/productos/index.php";
+            require_once "views/admin/inicio/principal.php";
             require_once "views/admin/footer.php";
         }
 
@@ -29,12 +29,20 @@
             require_once "views/admin/footer.php";
         }
 
+        public function Tprod() {
+            require_once "views/admin/header.php";
+            require_once "views/admin/productos/t_prod.php";
+            require_once "views/admin/footer.php";
+        }
+
         public function Guardar() {
             $p = new Producto;
-            $p->setId($_POST['id']);
+            $p->setId(intval($_POST['id']));
             $p->setNombre($_POST['nombre']);
             $p->setDesc($_POST['descripcion']);
             $p->setPrecio($_POST['precio']);
+
+
 
             //If
             //Condicion

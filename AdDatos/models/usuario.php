@@ -1,6 +1,6 @@
 <?php
 
-    class Producto {
+    class Usuario {
         //
         private $pdo;
 
@@ -18,7 +18,7 @@
         //
         public function Cantidad() {
             try {
-                $consulta=$this->pdo->prepare("SELECT * FROM usuarios;");
+                $consulta=$this->pdo->prepare("SELECT * FROM productos;");
                 $consulta->execute();
                 return $consulta->fetchAll(PDO::FETCH_OBJ);
             } catch (Exception $e) {
@@ -29,7 +29,7 @@
         //
         public function Listar() {
             try {
-                $consulta=$this->pdo->prepare("SELECT * FROM usuarios");
+                $consulta=$this->pdo->prepare("SELECT * FROM productos");
                 $consulta->execute();
                 return $consulta->fetchAll(PDO::FETCH_OBJ);
             } catch (Exception $e) {
@@ -41,7 +41,7 @@
         //
         public function Obtener($id) {
             try {
-                $consulta=$this->pdo->prepare("SELECT * FROM usuarios WHERE id_producto=?;");
+                $consulta=$this->pdo->prepare("SELECT * FROM productos WHERE id_producto=?;");
                 $consulta->execute(array($id));
                 $r = $consulta->fetch(PDO::FETCH_OBJ);
                 $p = new Producto;
@@ -58,7 +58,7 @@
         //
         public function Insertar(Producto $p) {
             try {
-                $consulta="INSERT INTO usuarios(nombre, descripcion, precio) VALUES (?,?,?);";
+                $consulta="INSERT INTO productos(nombre, descripcion, precio) VALUES (?,?,?);";
                 $this->pdo->prepare($consulta)->execute(array(
                     $p->getNombre(),
                     $p->getDesc(),
@@ -73,7 +73,7 @@
         //
         public function Actualizar(Producto $p) {
             try {
-                $consulta="UPDATE `usuarios` SET `nombre` = ?, `descripcion`= ?, `precio` = ? WHERE id_producto= ? ;";
+                $consulta="UPDATE `productos` SET `nombre` = ?, `descripcion`= ?, `precio` = ? WHERE id_producto= ? ;";
                 $this->pdo->prepare($consulta)->execute(array(
                     
                     $p->getNombre(),
@@ -89,7 +89,7 @@
         //
         public function Eliminar($id) {
             try {
-                $consulta="DELETE FROM usuarios WHERE id_producto = ?;";
+                $consulta="DELETE FROM productos WHERE id_producto = ?;";
                 $this->pdo->prepare($consulta)->execute(array($id));
             } catch (Exception $e) {
                 die($e->getMessage());

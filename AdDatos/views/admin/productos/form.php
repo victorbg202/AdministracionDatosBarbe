@@ -1,18 +1,18 @@
-<form name="formProductos" id="formProductos" method="POST">
+<form name="formProductos" id="formProductos" method="POST" action="?c=producto&a=Guardar">
   <h1><?= $titulo; ?></h1>
   <input name="id" type="hidden" value="<?=$p->getId()?>">
  
     <div class="form-group">
       <label >Nombre:</label>
-      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Producto 1">
+      <input name="nombre" type="text" class="form-control" placeholder="Producto 1" value="<?=$p->getNombre()?>">
     </div>
     <div class="form-group">
       <label >Descripcion:</label>
-      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Texto.... ">
+      <input name="descripcion" type="text" class="form-control" placeholder="Texto.... " value="<?=$p->getDesc()?>">
     </div>
     <div class="form-group">
       <label >Precio:</label>
-      <input type="money" class="form-control" id="exampleFormControlInput1" placeholder="0,00 €">
+      <input name="precio" type="money" class="form-control" placeholder="0,00 €" value="<?=$p->getPrecio()?>">
     </div>
     <div class="modal-footer">
       <a type="button" class="btn btn-secondary" href="?c=producto">Cancelar</a>
