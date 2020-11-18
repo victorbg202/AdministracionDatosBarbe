@@ -1,35 +1,31 @@
 <?php
 
     class Usuario {
-        //
+        //Para guardar la conexion con la BBDD
         private $pdo;
 
-        //
-        private $id_producto;
+        //Variables Usuario
+        private $id_usuario;
         private $nombre;
-        private $descripcion;
-        private $precio;
+        private $apellido;
+        private $correo;
+        private $contrasena;
 
-        //
+        //Constructor Usuario
         public function __construct() {
             $this->pdo = BasedeDatos::Conectar();
         }
 
-        //
-        public function Cantidad() {
-            try {
-                $consulta=$this->pdo->prepare("SELECT * FROM productos;");
-                $consulta->execute();
-                return $consulta->fetchAll(PDO::FETCH_OBJ);
-            } catch (Exception $e) {
-                die($e->getMessage());
-            }
+        //Iniciar sesion
+        public function IniciarSesio() {
+            session_start();
+            
         }
 
-        //
+        //Listar los usuarios
         public function Listar() {
             try {
-                $consulta=$this->pdo->prepare("SELECT * FROM productos");
+                $consulta=$this->pdo->prepare("SELECT * FROM usuarios");
                 $consulta->execute();
                 return $consulta->fetchAll(PDO::FETCH_OBJ);
             } catch (Exception $e) {
@@ -38,71 +34,71 @@
         }
 
 
-        //
+        //Utilizada para obtener los datos de un usuario en concreto
         public function Obtener($id) {
             try {
-                $consulta=$this->pdo->prepare("SELECT * FROM productos WHERE id_producto=?;");
+                $consulta=$this->pdo->prepare("SELECT * FROM usuarios WHERE id_usuario=?;");
                 $consulta->execute(array($id));
                 $r = $consulta->fetch(PDO::FETCH_OBJ);
-                $p = new Producto;
-                $p->setId($r->id_producto);
-                $p->setNombre($r->nombre);
-                $p->setDesc($r->descripcion);
-                $p->setPrecio($r->precio);
-                return $p;
+                $u = new Usuario;
+                $u->setId($r->id_usuario);
+                $u->setNombre($r->nombre);
+                $u->setApellido($r->apellido);
+                $u->setCorreo($r->correo);
+                $u->setContrasena($r->contrasena);
+                return $u;
             } catch (Exception $e) {
                 die($e->getMessage());
             }
         }
 
-        //
-        public function Insertar(Producto $p) {
+        //Insertar usuario
+        public function Insertar(Usuario $u) {
             try {
-                $consulta="INSERT INTO productos(nombre, descripcion, precio) VALUES (?,?,?);";
+                $consulta="INSERT INTO usuarios(nombre, apellido, correo, contrasena) VALUES (?,?,?,?);";
                 $this->pdo->prepare($consulta)->execute(array(
-                    $p->getNombre(),
-                    $p->getDesc(),
-                    $p->getPrecio()
+                    $u->getNombre(),
+                    $u->getApellido(),
+                    $u->getCorreo(),
+                    $u->getContrasena()
                 ));
-               echo  $p->getNombre();
             } catch (Exception $e) {
                 die($e->getMessage());
             }
         }
 
         //
-        public function Actualizar(Producto $p) {
+        public function Actualizar(Usuario $u) {
             try {
-                $consulta="UPDATE `productos` SET `nombre` = ?, `descripcion`= ?, `precio` = ? WHERE id_producto= ? ;";
+                $consulta="UPDATE `usuarios` SET 'nombre'=?, 'apellido'=?, 'correo'=?, 'contrasena'=? WHERE id_usuario= ? ;";
                 $this->pdo->prepare($consulta)->execute(array(
-                    
-                    $p->getNombre(),
-                    $p->getDesc(),
-                    $p->getPrecio(),
-                    $p->getId()
+                    $u->getNombre(),
+                    $u->getApellido(),
+                    $u->getCorreo(),
+                    $u->getContrasena()
                 ));
             } catch (Exception $e) {
                 die($e->getMessage());
             }
         }
         
-        //
+        //Eliminar usuario de la BBDD
         public function Eliminar($id) {
             try {
-                $consulta="DELETE FROM productos WHERE id_producto = ?;";
+                $consulta="DELETE FROM usuarios WHERE id_usuario = ?;";
                 $this->pdo->prepare($consulta)->execute(array($id));
             } catch (Exception $e) {
                 die($e->getMessage());
             }
         }
 
-        //
+        //GETTERs y SETTERs
         public function getId() {
-            return $this->id_producto;
+            return $this->id_usuario;
         }
 
-        public function setId($id_producto) {
-            $this->id_producto = $id_producto;
+        public function setId($id_usuario) {
+            $this->id_usuario = $id_usuario;
         }
 
         public function getNombre() {
@@ -112,21 +108,29 @@
         public function setNombre($nombre) {
             $this->nombre = $nombre;
         }
+
+        public function getApellido() {
+            return $this->apellido;
+        }
+
+        public function setApellido($apellido) {
+            $this->apellido = $apellido;
+        }
         
-        public function getDesc() {
-            return $this->descripcion;
+        public function getCorreo() {
+            return $this->correo;
         }
 
-        public function setDesc($descripcion) {
-            $this->descripcion = $descripcion;
+        public function setCorreo($correo) {
+            $this->correo = $correo;
+        }
+        
+        public function getContrasena() {
+            return $this->contrasena;
         }
 
-        public function getPrecio() {
-            return $this->precio;
-        }
-
-        public function setPrecio($precio) {
-            $this->precio = $precio;
+        public function setContrasena($contrasena) {
+            $this->contrasena = $contrasena;
         }
     }
 

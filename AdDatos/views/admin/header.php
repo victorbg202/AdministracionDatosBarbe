@@ -17,7 +17,7 @@
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="?c=producto&a=Inicio">Inicio <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="?c=producto&a=Tprod">Productos</a>
-          <a class="nav-item nav-link" href="?c=usuario&a=Tuser">Usuarios</a>
+          <a class="nav-item nav-link" href="?c=usuario&a=Inicio">Usuarios</a>
           <a class="nav-item nav-link" href="#">Log out</a>
         </div>
       </div>

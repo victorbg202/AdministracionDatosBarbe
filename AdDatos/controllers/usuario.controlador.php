@@ -1,5 +1,5 @@
 <?php
-    require_once "models/producto.php";
+    require_once "models/usuario.php";
 
     class UsuarioControlador {
 
@@ -22,7 +22,7 @@
             require_once "views/admin/footer.php";
         }
 
-        public function Tprod() {
+        public function Inicio() {
             require_once "views/admin/header.php";
             require_once "views/admin/usuarios/t_user.php";
             require_once "views/admin/footer.php";
@@ -32,8 +32,9 @@
             $u = new Usuario;
             $u->setId(intval($_POST['id']));
             $u->setNombre($_POST['nombre']);
-            $u->setDesc($_POST['descripcion']);
-            $u->setPrecio($_POST['precio']);
+            $u->setApellido($_POST['apellido']);
+            $u->setCorreo($_POST['correo']);
+            $u->setContrasena($_POST['contrasena']);
 
 
 
