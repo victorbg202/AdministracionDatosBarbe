@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="index.php">Administracion</a>
+      <a class="navbar-brand" href="?c=producto&a=Inicio">Administracion</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -18,7 +18,7 @@
           <a class="nav-item nav-link" href="?c=producto&a=Inicio">Inicio <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="?c=producto&a=Tprod">Productos</a>
           <a class="nav-item nav-link" href="?c=usuario&a=Inicio">Usuarios</a>
-          <a class="nav-item nav-link" href="#">Log out</a>
+          <a class="nav-item nav-link" href="?c=login&a=LogOut">Log out</a>
         </div>
       </div>
     </nav>

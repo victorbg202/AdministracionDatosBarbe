@@ -12,20 +12,21 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form class="sign-in-form" action="php/login.php" method="GET">
+
+          <form class="sign-in-form" method="POST" action="?c=login&a=ctrIngresoUsuario">
             <h2 class="title texto-naranja">Iniciar sesion</h2>
-            <a class="nav-item nav-link" href="?c=producto">Productos</a>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Nombre de usuario" name="nombre"/>
+              <input type="text" placeholder="Nombre de usuario" name="ingUsuario"/>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="*********" name="contrasena"/>
+              <input type="password" placeholder="*********" name="ingPassword"/>
             </div>
             <input type="submit" value="Iniciar" class="btn solid" />
           </form>
-          <form action="php/registrar.php" class="sign-up-form" method="GET">
+
+          <form action="php/registrar.php" class="sign-up-form" method="POST">
             <h2 class="title texto-naranja">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>

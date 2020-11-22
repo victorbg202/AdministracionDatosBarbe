@@ -17,9 +17,15 @@
         }
 
         //Iniciar sesion
-        public function IniciarSesio() {
-            session_start();
-            
+        static public function mdlMostrarUsuarios($tabla, $item, $valor){
+            $x=BasedeDatos::Conectar()->prepare("SELECT * FROM $tabla where $item = :$item");
+
+            $x->bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+            $x->execute();
+
+            return $x->fetch();
+
         }
 
         //Listar los usuarios

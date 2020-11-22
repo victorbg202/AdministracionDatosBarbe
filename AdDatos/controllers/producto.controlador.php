@@ -58,6 +58,5 @@
             $this->modelo->Eliminar($_GET['id']);
             header("location:?c=producto");
         }
-    }
-
+    }   
 ?>
