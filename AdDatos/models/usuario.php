@@ -137,7 +137,7 @@
 
         public function setContrasena($contrasena) {
             $this->contrasena = $contrasena;
-        }
+        } 
     }
 
 ?>

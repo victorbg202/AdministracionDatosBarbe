@@ -48,6 +48,18 @@
                 header("location:?c=usuario");
             }
     
+            public function GuardarNuevo() {
+                $u = new Usuario;
+                $u->setId(intval($_POST['id']));
+                $u->setNombre($_POST['nombre']);
+                $u->setApellido($_POST['apellido']);
+                $u->setCorreo($_POST['correo']);
+                $u->setContrasena($_POST['contrasena']);
+                   
+                $this->modelo->Insertar($u);
+                header("location: inicio");
+            }
+    
             public function Borrar() {
                 $this->modelo->Eliminar($_GET['id']);
                 header("location:?c=usuario");

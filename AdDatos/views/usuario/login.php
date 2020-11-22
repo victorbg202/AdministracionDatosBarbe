@@ -13,7 +13,7 @@
       <div class="forms-container">
         <div class="signin-signup">
 
-          <form class="sign-in-form" method="POST" action="?c=login&a=ctrIngresoUsuario">
+          <form class="sign-in-form" method="POST" action="?c=login&a=IngresoUsuario">
             <h2 class="title texto-naranja">Iniciar sesion</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
@@ -26,7 +26,7 @@
             <input type="submit" value="Iniciar" class="btn solid" />
           </form>
 
-          <form action="php/registrar.php" class="sign-up-form" method="POST">
+          <form action="?c=usuario&a=GuardarNuevo" class="sign-up-form" method="POST">
             <h2 class="title texto-naranja">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
@@ -43,10 +43,6 @@
             <div class="input-field">
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Password" name="contrasena"/>
-            </div>
-            <div class="input-field">
-              <i class="fas fa-calendar-alt"></i>
-              <input type="date" placeholder="Fecha de nacimiento" name="fechaNacimiento"/>
             </div>
             <input type="submit" class="btn" value="Registrar" />
           </form>

@@ -12,12 +12,12 @@
             require_once "views/usuario/login.php";
         }
     
-        public function ctrIngresoUsuario() {
+        public function IngresoUsuario() {
             if(isset($_POST["ingUsuario"])){
                 $tabla = "usuarios";
                 $item = "nombre";
                 $valor = $_POST["ingUsuario"];
-                $respuesta = Usuario::MdlMostrarUsuarios($tabla, $item, $valor);
+                $respuesta = Usuario::MostrarUsuarios($tabla, $item, $valor);
                 if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&  preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"])) {
                     if($respuesta["nombre"] == $_POST["ingUsuario"] && $respuesta["contrasena"] == $_POST["ingPassword"]){
                         if ($respuesta["tipo"] == "admin") {

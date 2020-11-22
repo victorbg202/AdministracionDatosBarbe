@@ -8,7 +8,7 @@
         }
 
         //Iniciar sesion
-        static public function mdlMostrarUsuarios($tabla, $item, $valor){
+        static public function MostrarUsuarios($tabla, $item, $valor){
             $consulta=BasedeDatos::Conectar()->prepare("SELECT * FROM $tabla where $item = :$item");
 
             $consulta ->bindParam(":".$item, $valor, PDO::PARAM_STR);
