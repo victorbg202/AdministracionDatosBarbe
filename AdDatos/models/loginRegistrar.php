@@ -1,6 +1,14 @@
 <?php
 
-    class Usuario {
+    class loginRegistrar {
+        
+        //Variables Usuario
+        private $id_usuario;
+        private $nombre;
+        private $apellido;
+        private $correo;
+        private $contrasena;
+        private $error;
 
         //Constructor Usuario
         public function __construct() {
@@ -18,6 +26,85 @@
             return $consulta ->fetch();
 
         }
+
+        //Insertar usuario
+        public function Insertar(loginRegistrar $u) {
+            try {
+                $consulta="INSERT INTO usuarios(nombre, apellido, correo, contrasena) VALUES (?,?,?,?);";
+                $this->pdo->prepare($consulta)->execute(array(
+                    $u->getNombre(),
+                    $u->getApellido(),
+                    $u->getCorreo(),
+                    $u->getContrasena()
+                ));
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        //Mostrar errores
+        public function Errores(loginRegistrar $u) {
+            try {
+                $consulta="INSERT INTO usuarios(nombre, apellido, correo, contrasena) VALUES (?,?,?,?);";
+                $this->pdo->prepare($consulta)->execute(array(
+                    $u->getNombre(),
+                    $u->getApellido(),
+                    $u->getCorreo(),
+                    $u->getContrasena()
+                ));
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        //GETTERs y SETTERs
+        public function getId() {
+            return $this->id_usuario;
+        }
+
+        public function setId($id_usuario) {
+            $this->id_usuario = $id_usuario;
+        }
+
+        public function getNombre() {
+            return $this->nombre;
+        }
+
+        public function setNombre($nombre) {
+            $this->nombre = $nombre;
+        }
+
+        public function getApellido() {
+            return $this->apellido;
+        }
+
+        public function setApellido($apellido) {
+            $this->apellido = $apellido;
+        }
+        
+        public function getCorreo() {
+            return $this->correo;
+        }
+
+        public function setCorreo($correo) {
+            $this->correo = $correo;
+        }
+        
+        public function getContrasena() {
+            return $this->contrasena;
+        }
+
+        public function setContrasena($contrasena) {
+            $this->contrasena = $contrasena;
+        } 
+
+        public function getError() {
+            return $this->error;
+        }
+
+        public function setError($error) {
+            $this->error = $error;
+        } 
     }
 
 ?>
