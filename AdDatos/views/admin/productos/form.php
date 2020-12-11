@@ -15,7 +15,7 @@
       <input name="precio" type="money" class="form-control" placeholder="0,00 €" value="<?=$p->getPrecio()?>">
     </div>
     <div class="modal-footer">
-      <a type="button" class="btn btn-secondary" href="?c=producto">Cancelar</a>
+      <a type="button" class="btn btn-secondary" href="?c=producto&a=InicioProd">Cancelar</a>
       <button type="submit" class="btn btn-success"><?= $titulo; ?> producto</button>
     </div>
 </form>

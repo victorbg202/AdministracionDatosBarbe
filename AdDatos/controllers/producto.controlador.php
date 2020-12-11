@@ -16,6 +16,12 @@
             require_once "views/admin/footer.php";
         }
 
+        public function InicioProd() {
+            require_once "views/admin/header.php";
+            require_once "views/admin/productos/t_prod.php";
+            require_once "views/admin/footer.php";
+        }
+
         public function FormCrear() {
             $titulo = "Registrar";
             $p = new Producto();
@@ -56,7 +62,7 @@
 
         public function Borrar() {
             $this->modelo->Eliminar($_GET['id']);
-            header("location:?c=producto");
+            header("location:?c=producto&a=Tprod");
         }
     }   
 ?>
