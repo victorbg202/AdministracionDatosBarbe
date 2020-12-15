@@ -35,8 +35,8 @@
   height: 150px;
   position: absolute;
   left: 0;
-  margin-top: -15px;
-  margin-left: 100px;
+  margin-top: 25px;
+  margin-left: 160px;
 }
 
 .product-detail {
@@ -222,6 +222,6 @@
   margin-left: 5px;
 }
 
-.card-bodyCard>p {
-    margin: 10px;
+.card-bodyCard > p {
+  margin: 10px;
 }

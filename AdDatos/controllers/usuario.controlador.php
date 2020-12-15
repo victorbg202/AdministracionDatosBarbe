@@ -8,6 +8,12 @@
             public function __construct() {
                 $this->modelo = new Usuario;
             }
+
+            public function Inicio() {
+                require_once "views/admin/header.php";
+                require_once "views/admin/usuarios/t_user.php";
+                require_once "views/admin/footer.php";
+            }
     
             public function FormCrear() {
                 $titulo = "Registrar";
@@ -22,12 +28,6 @@
                 require_once "views/admin/footer.php";
             }
     
-            public function Inicio() {
-                require_once "views/admin/header.php";
-                require_once "views/admin/usuarios/t_user.php";
-                require_once "views/admin/footer.php";
-            }
-    
             public function Guardar() {
                 $u = new Usuario;
                 $u->setId(intval($_POST['id']));
@@ -35,11 +35,8 @@
                 $u->setApellido($_POST['apellido']);
                 $u->setCorreo($_POST['correo']);
                 $u->setContrasena($_POST['contrasena']);
-    
-    
-    
-                //If
-                //Condicion
+
+                //If condicion
                 $u->getId() > 0 ? 
                 //Verdadero
                 $this->modelo->Actualizar($u) : 
