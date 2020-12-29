@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" href="assets/css/productos/products.css" />
+  <link rel="stylesheet" href="assets/css/productos/productos.css" />
 </head>
 <div class="card-group">
   <div class="container, containerProd">

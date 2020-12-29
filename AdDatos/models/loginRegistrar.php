@@ -9,6 +9,7 @@
         private $correo;
         private $contrasena;
         private $error;
+        private $errContra;
 
         //Constructor Usuario
         public function __construct() {
@@ -104,6 +105,14 @@
 
         public function setError($error) {
             $this->error = $error;
+        } 
+
+        public function getErrorContra() {
+            return $this->errContra;
+        }
+
+        public function setErrorContra($errContra) {
+            $this->errContra = $errContra;
         } 
     }
 

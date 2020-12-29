@@ -23,7 +23,9 @@
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="*********" name="ingPassword"/>
             </div>
-            <input type="submit" value="Iniciar" class="btn solid" />
+            <small><?=$errUsu?></small>
+            
+            <button class="btn">Iniciar sesion</button>
           </form>
 
           <form action="?c=login&a=GuardarNuevo" class="sign-up-form" method="POST">
@@ -46,9 +48,9 @@
             </div><div class="input-field">
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Confirmar Password" name="confContrasena"/>
-              <small><?=$this->modelo->getError()?></small>
             </div>
-            <input type="submit" class="btn" value="Registrar" />
+              <small><?=$err?></small>
+            <button class="btn">Registar</button>
           </form>
         </div>
       </div>

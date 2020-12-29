@@ -35,8 +35,9 @@
           <a class="nav-link">Contacto</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="?c=login">Login / Registrar</a>
+          <a class="nav-link" href="<?=$url?>"><?=$titulo ?></a>
         </li>
+        <a href="<?=$nombreUrl?>"><?=$nombre?></a>
       </ul>
     </div>
 </div>

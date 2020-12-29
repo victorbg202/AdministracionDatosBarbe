@@ -14,6 +14,11 @@
                 require_once "views/admin/usuarios/t_user.php";
                 require_once "views/admin/footer.php";
             }
+
+            public function editarPerfil()
+            {
+                require_once "views/usuario/editarPerfil.php";
+            }
     
             public function FormCrear() {
                 $titulo = "Registrar";
