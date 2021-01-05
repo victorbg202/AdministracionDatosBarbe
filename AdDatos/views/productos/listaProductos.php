@@ -1,73 +1,65 @@
-<link rel="stylesheet" href="assets/css/productos/listaProductos.css">
+<link rel="stylesheet" href="assets/css/productos/listaProd.css">
 
+<!-- Titulo -->
+<h1>Tienda</h1>
 
+<!-- Barra de busqueda -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <button type="button" onClick="location.href='tienda.controlador.php?categoria=<?= $this->setCateg('todos'); ?>'" >Todos</button>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="?c=tienda&a=<?= $this->setCateg('todos'); ?>">Ordenadores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pantallas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Impresoaras</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Componentes</a>
+      </li>
+      <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Ordenadores</a>
+          <a class="dropdown-item" href="#">Impresoaras</a>
+          <a class="dropdown-item" href="#">Componentes</a>
+        </div>
+      </li> -->
+    </ul>
+  </div>
+</nav>
+<?= $this->getCateg(); ?>
+<br>
+<br>
+
+<!-- Seccion de productos -->
 <div class="container">
-	<div class="row">
-		<div class="col-md-4">
-    <h4 class="text-center"><strong>STYLE 1</strong></h4>
-    <hr>
-    <div class="profile-card-2"><img src="http://envato.jayasankarkr.in/code/profile/assets/img/profile-2.jpg" class="img img-responsive">
-        <div class="profile-name">JOHN DOE</div>
-        <div class="profile-username">@johndoesurname</div>
-        <div class="profile-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
-    </div>
-</div>
-
-<div class="col-md-4">
-    <h4 class="text-center"><strong>STYLE 2</strong></h4>
-    <hr>
-    <div class="profile-card-6"><img src="http://envato.jayasankarkr.in/code/profile/assets/img/profile-6.jpg" class="img img-responsive">
-        <div class="profile-name">JOHN
-            <br>DOE</div>
-        <div class="profile-position">Lorem Ipsum Donor</div>
-        <div class="profile-overview">
-            <div class="profile-overview">
-                <div class="row text-center">
-                    <div class="col-xs-4">
-                        <h3>1</h3>
-                        <p>Rank</p>
-                    </div>
-                    <div class="col-xs-4">
-                        <h3>50</h3>
-                        <p>Matches</p>
-                    </div>
-                    <div class="col-xs-4">
-                        <h3>35</h3>
-                        <p>Goals</p>
-                    </div>
-                </div>
-            </div>
+  <section class=" card-deck">  
+    <?php foreach ($this->modelo->ListarProductos() as $prod):?>
+      <article class="card card--1">
+        <div class="card__info-hover">
+          <button class="btn btn-successful">Añadir al carrito</button>
         </div>
-    </div>
-</div>
-		<div class="col-md-4">
-    <h4 class="text-center"><strong>STYLE 3</strong></h4>
-    <hr>
-    <div class="profile-card-4 text-center"><img src="http://envato.jayasankarkr.in/code/profile/assets/img/profile-4.jpg" class="img img-responsive">
-        <div class="profile-content">
-            <div class="profile-name">John Doe
-                <p>@johndoedesigner</p>
-            </div>
-            <div class="profile-description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</div>
-            <div class="row">
-                <div class="col-xs-4">
-                    <div class="profile-overview">
-                        <p>TWEETS</p>
-                        <h4>1300</h4></div>
-                </div>
-                <div class="col-xs-4">
-                    <div class="profile-overview">
-                        <p>FOLLOWERS</p>
-                        <h4>250</h4></div>
-                </div>
-                <div class="col-xs-4">
-                    <div class="profile-overview">
-                        <p>FOLLOWING</p>
-                        <h4>168</h4></div>
-                </div>
-            </div>
+        <div class="card__img"></div>
+        <a href="#" class="card_link">
+          <div class="card__img--hover"></div>
+        </a>
+        <div class="card__info">
+          <span class="card__category"> Recipe</span>
+          <h3 class="card__title"><?=$prod->nombre ?></h3>
+          <span class="card__by">by <a href="#" class="card__author" title="author">Celeste Mills</a></span>
         </div>
-    </div>
-</div>
-	</div>
+      </article>
+    <?php endforeach; ?>
+  </section>
 </div>

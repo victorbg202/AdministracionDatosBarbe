@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
       <label >Correo:</label>
-      <input name="correo" type="email" class="form-control" placeholder="hola@hola.com" value="<?=$u->getCorreo()?>">
+      <input name="correo" type="text" class="form-control" placeholder="hola@hola.com" value="<?=$u->getCorreo()?>">
     </div>
     <div class="form-group">
       <label >Contraseña:</label>

@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-      <?php foreach ($this->modelo->Listar() as $r):?>
+      <?php foreach ($this->modelo->ListarProductos() as $r):?>
         <tr>        
           <th><?=$r->id_producto ?></th>
           <td><?=$r->nombre ?></td>

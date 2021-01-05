@@ -1,6 +1,6 @@
 <?php
         require_once "models/usuario.php";
-    
+        session_start();
         class UsuarioControlador {
     
             private $modelo;
@@ -31,6 +31,33 @@
                 require_once "views/admin/header.php";
                 require_once "views/admin/usuarios/form.php";
                 require_once "views/admin/footer.php";
+            }
+
+            public function EditarUsuario() {
+                if (isset($_GET['id'])) {
+                    $titulo = "Modificar";
+                    $u = $this->modelo->Obtener($_GET['id']);
+                }
+                require_once "views/usuario/formEditar.php";
+            }
+
+            public function EditarDatos()
+            {
+                $u = new Usuario;
+                $u->setId(intval($_POST['id']));
+                $u->setNombre($_POST['nombre']);
+                $u->setApellido($_POST['apellido']);
+                $u->setCorreo($_POST['correo']);
+                $u->setContrasena($_POST['contrasena']);
+
+                
+                $_SESSION["name"] = $_POST['nombre'];
+                $_SESSION["last_name"] = $_POST['apellido'];
+                $_SESSION["mail"] = $_POST['correo'];
+                $_SESSION["pssw"] = $_POST['contrasena'];
+
+                $this->modelo->Actualizar($u);
+                header("location: ?c=usuario&a=editarPerfil");
             }
     
             public function Guardar() {

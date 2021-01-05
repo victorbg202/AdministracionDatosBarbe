@@ -76,12 +76,13 @@
         //
         public function Actualizar(Usuario $u) {
             try {
-                $consulta="UPDATE `usuarios` SET 'nombre'=?, 'apellido'=?, 'correo'=?, 'contrasena'=? WHERE id_usuario= ? ;";
+                $consulta= "UPDATE `usuarios` SET `nombre`= ?, `apellido`=?, `correo`= ?, `contrasena`= ? WHERE id_usuario= ? ;";
                 $this->pdo->prepare($consulta)->execute(array(
                     $u->getNombre(),
                     $u->getApellido(),
                     $u->getCorreo(),
-                    $u->getContrasena()
+                    $u->getContrasena(),
+                    $u->getId()
                 ));
             } catch (Exception $e) {
                 die($e->getMessage());

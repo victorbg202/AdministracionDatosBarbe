@@ -30,11 +30,20 @@ class LoginControlador
                 if ($respuesta["nombre"] == $_POST["ingUsuario"] && $respuesta["contrasena"] == $_POST["ingPassword"]) {
                     if ($respuesta["tipo"] == "admin") {
                         $_SESSION["loged"] = true;
+                        $_SESSION["id"] = $respuesta["id_usuario"];
                         $_SESSION["name"] = $respuesta["nombre"];
+                        $_SESSION["last_name"] = $respuesta["apellido"];
+                        $_SESSION["mail"] = $respuesta["correo"];
+                        $_SESSION["pssw"] = $respuesta["contrasena"];
                         echo '<script> window.location = "?c=producto"; </script>';
                     } else if ($respuesta["tipo"] == "") {
                         $_SESSION["loged"] = true;
+                        $_SESSION["id"] = $respuesta["id_usuario"];
                         $_SESSION["name"] = $respuesta["nombre"];
+                        $_SESSION["last_name"] = $respuesta["apellido"];
+                        $_SESSION["mail"] = $respuesta["correo"];
+                        $_SESSION["pssw"] = $respuesta["contrasena"];
+                        $_SESSION["img"] = $respuesta["img"];
                         echo '<script> window.location = "inicio"; </script>';
                     }
                 } else {

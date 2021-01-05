@@ -9,6 +9,7 @@
         private $nombre;
         private $descripcion;
         private $precio;
+        private $cat;
 
         //
         public function __construct() {
@@ -27,9 +28,20 @@
         }
 
         //
-        public function Listar() {
+        public function ListarProductos() {
             try {
                 $consulta=$this->pdo->prepare("SELECT * FROM productos");
+                $consulta->execute();
+                return $consulta->fetchAll(PDO::FETCH_OBJ);
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        //
+        public function ListarOrdenadores() {
+            try {
+                $consulta=$this->pdo->prepare("SELECT * FROM productos WHERE categoria='ordenadores'");
                 $consulta->execute();
                 return $consulta->fetchAll(PDO::FETCH_OBJ);
             } catch (Exception $e) {
@@ -126,6 +138,14 @@
 
         public function setPrecio($precio) {
             $this->precio = $precio;
+        }
+
+        public function getCat() {
+            return $this->cat;
+        }
+
+        public function setCat($cat) {
+            $this->precio = $cat;
         }
     }
 

@@ -29,7 +29,7 @@
           <a class="nav-link">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">Tienda</a>
+          <a class="nav-link" href="?c=tienda&a=Inicio">Tienda</a>
         </li>
         <li class="nav-item">
           <a class="nav-link">Contacto</a>
