@@ -10,31 +10,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <button type="button" onClick="location.href='tienda.controlador.php?categoria=<?= $this->setCateg('todos'); ?>'" >Todos</button>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="?c=tienda&a=<?= $this->setCateg('todos'); ?>">Ordenadores</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pantallas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Impresoaras</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Componentes</a>
-      </li>
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Ordenadores</a>
-          <a class="dropdown-item" href="#">Impresoaras</a>
-          <a class="dropdown-item" href="#">Componentes</a>
-        </div>
-      </li> -->
+      <?php foreach ($this->modelo->ListarCategorias() as $categorias) : ?> 
+          <li>
+            <a href='?c=tienda&a=setOrdenadores'><?=$categorias->nombreCat ?></a>
+          </li>
+      <?php endforeach; ?>
     </ul>
   </div>
 </nav>

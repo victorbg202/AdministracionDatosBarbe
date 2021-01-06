@@ -45,7 +45,7 @@
   <div class="container">
     <div class="textos">
       <h2>A que estas esperando?</h2>
-      <a href="/contacte">Tienda</a>
+      <a href="?c=tienda&a=Inicio">Tienda</a>
     </div>
     <img class="img_header" src="assets/img/principal_header.svg" alt="Foto Tienda">
   </div>

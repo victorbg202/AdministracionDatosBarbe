@@ -49,6 +49,17 @@
             }
         }
 
+        //
+        public function ListarCategorias() {
+            try {
+                $consulta=$this->pdo->prepare("SELECT nombreCat FROM categorias");
+                $consulta->execute();
+                return $consulta->fetchAll(PDO::FETCH_OBJ);
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
 
         //
         public function Obtener($id) {
