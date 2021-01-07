@@ -10,15 +10,18 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
+          <li>
+            <a class="nav-link" href="?c=tienda&categoria=todos">Todos</a>
+          </li>
       <?php foreach ($this->modelo->ListarCategorias() as $categorias) : ?> 
           <li>
-            <a href='?c=tienda&a=setOrdenadores'><?=$categorias->nombreCat ?></a>
+            <a class="nav-link" href="?c=tienda&categoria=<?=$categorias->nombreCat; ?>"><?=$categorias->nombreCat; ?></a>
           </li>
       <?php endforeach; ?>
     </ul>
   </div>
 </nav>
-<?= $this->getCateg(); ?>
+<?= $this->categoria ?>
 <br>
 <br>
 
@@ -43,3 +46,7 @@
     <?php endforeach; ?>
   </section>
 </div>
+<br>
+<br>
+<br>
+<br>

@@ -64,6 +64,7 @@
                 $consulta="INSERT INTO usuarios(nombre, apellido, correo, contrasena) VALUES (?,?,?,?);";
                 $this->pdo->prepare($consulta)->execute(array(
                     $u->getNombre(),
+                    $u->getNombre(),
                     $u->getApellido(),
                     $u->getCorreo(),
                     $u->getContrasena()
@@ -98,6 +99,8 @@
                 die($e->getMessage());
             }
         }
+
+        
 
         //GETTERs y SETTERs
         public function getId() {

@@ -1,23 +1,28 @@
 <?php
     
     session_start();
-    require_once "models/producto.php";
+    require_once "models/carta.php";
 
-    class TiendaControlador {
+    class CartaControlador {
 
         private $modelo;
-        private $categoria;
         /*<?php $this->modelo->setCat('todos') ?>*/
     
         public function __construct() {
-            $this->modelo = new Producto;
+            $this->modelo = new Carta;
         }
 
         public function Inicio() {
+            $nombre = "";
             $titulo = "Logout";
             $url = "?c=login&a=LogOut";
-            $urlCarta="?c=carta&a=Inicio";
             $nombre = "";
+
+            if (isset($_SESSION["loged"])) {     
+                $nombre = $_SESSION["name"];
+                $nombreUrl = "?c=usuario&a=editarPerfil";
+            }
+            
             if (isset($_GET['categoria'])) { 
                 $categoria=$_GET['categoria'];
             }
@@ -32,7 +37,7 @@
                 $url = "?c=login";
             }
             require_once 'views/usuario/header.php';
-            require_once "views/productos/listaProductos.php";
+            require_once "views/productos/cartaProductos.php";
             require_once 'views/usuario/footer.php';
         }
 

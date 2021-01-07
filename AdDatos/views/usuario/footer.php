@@ -1,9 +1,4 @@
-    <br>
-    <br>
-    <br>
-    <br>
-    
-    <!-- Footer (Simple website footer design | HTML and CSS)-->
+<!-- Footer (Simple website footer design | HTML and CSS)-->
     <footer class="footerCont">
       <div class="art">
         <div class="content">

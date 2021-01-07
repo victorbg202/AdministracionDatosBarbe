@@ -7,10 +7,9 @@ h1 {
     animation: moverDerecha 1s ease-in;
 }
 
-.sofa {
-    position: absolute;
-    max-height: 200px;
-    animation: moverDerecha 1s ease-in;
+
+.navbar-nav {
+    text-align: center;
 }
 
 @keyframes moverDerecha{

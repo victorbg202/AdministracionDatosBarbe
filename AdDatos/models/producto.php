@@ -29,19 +29,63 @@
 
         //
         public function ListarProductos() {
-            try {
-                $consulta=$this->pdo->prepare("SELECT * FROM productos");
-                $consulta->execute();
-                return $consulta->fetchAll(PDO::FETCH_OBJ);
-            } catch (Exception $e) {
-                die($e->getMessage());
+            if(isset($_GET['categoria'])) {
+                if ($_GET['categoria']=="ordenadores") {
+                    try {
+                        $consulta=$this->pdo->prepare("SELECT * FROM productos Where idCat=1");
+                        $consulta->execute();
+                        return $consulta->fetchAll(PDO::FETCH_OBJ);
+                    } catch (Exception $e) {
+                        die($e->getMessage());
+                    }
+                }else if ($_GET['categoria']=="pantallas") {
+                    try {
+                        $consulta=$this->pdo->prepare("SELECT * FROM productos Where idCat=2");
+                        $consulta->execute();
+                        return $consulta->fetchAll(PDO::FETCH_OBJ);
+                    } catch (Exception $e) {
+                        die($e->getMessage());
+                    }
+                }else if ($_GET['categoria']=="impresoras") {
+                    try {
+                        $consulta=$this->pdo->prepare("SELECT * FROM productos Where idCat=3");
+                        $consulta->execute();
+                        return $consulta->fetchAll(PDO::FETCH_OBJ);
+                    } catch (Exception $e) {
+                        die($e->getMessage());
+                    }
+                }else if ($_GET['categoria']=="componentes") {
+                    try {
+                        $consulta=$this->pdo->prepare("SELECT * FROM productos Where idCat=4");
+                        $consulta->execute();
+                        return $consulta->fetchAll(PDO::FETCH_OBJ);
+                    } catch (Exception $e) {
+                        die($e->getMessage());
+                    }
+                }else {
+                    try {
+                        $consulta=$this->pdo->prepare("SELECT * FROM productos");
+                        $consulta->execute();
+                        return $consulta->fetchAll(PDO::FETCH_OBJ);
+                    } catch (Exception $e) {
+                        die($e->getMessage());
+                    }
+                }
+            }else {
+                try {
+                    $consulta=$this->pdo->prepare("SELECT * FROM productos");
+                    $consulta->execute();
+                    return $consulta->fetchAll(PDO::FETCH_OBJ);
+                } catch (Exception $e) {
+                    die($e->getMessage());
+                }
             }
         }
 
-        //
-        public function ListarOrdenadores() {
+        //Listar los usuarios
+        public function Listar() {
             try {
-                $consulta=$this->pdo->prepare("SELECT * FROM productos WHERE categoria='ordenadores'");
+                $consulta=$this->pdo->prepare("SELECT * FROM usuarios");
                 $consulta->execute();
                 return $consulta->fetchAll(PDO::FETCH_OBJ);
             } catch (Exception $e) {
