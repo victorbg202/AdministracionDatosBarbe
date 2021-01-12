@@ -81,6 +81,9 @@ class LoginControlador
             $err = "Las contraseñas no coinciden";
             require_once "views/usuario/login.php";
         }
+
+        //Crear tabla para el carrito carrito+$_SESSION["name"]
+        $this->modelo->CrearCarrito($_POST['nombre']);
     }
 
     public function LogOut()

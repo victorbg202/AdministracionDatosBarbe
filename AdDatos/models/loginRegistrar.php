@@ -43,6 +43,21 @@
             }
         }
 
+        //Crear tabla para carrito $_SESSION['name']
+        public function CrearCarrito($nombre) {
+            try {
+                $nombreTabla = 'carrito'+$nombre;
+            $consulta=$this->pdo->prepare("CREATE TABLE $nombreTabla { nombreProd VARCHAR(25),
+                                                                       cantidad   INT(500),
+                                                                       precio     INT(25) }");
+                //$consulta->execute();
+                $this->pdo->prepare($consulta)->execute();
+                
+            } catch (Exception $e) {
+                die($e->getMessage());                
+            }
+        }
+
         //Mostrar errores
         public function Errores(loginRegistrar $u) {
             try {
