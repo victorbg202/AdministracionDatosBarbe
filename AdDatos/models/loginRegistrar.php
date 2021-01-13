@@ -46,13 +46,11 @@
         //Crear tabla para carrito $_SESSION['name']
         public function CrearCarrito($nombre) {
             try {
-                $nombreTabla = 'carrito'+$nombre;
-            $consulta=$this->pdo->prepare("CREATE TABLE $nombreTabla { nombreProd VARCHAR(25),
-                                                                       cantidad   INT(500),
-                                                                       precio     INT(25) }");
-                //$consulta->execute();
-                $this->pdo->prepare($consulta)->execute();
-                
+                $nombreTabla = 'carrito'.$nombre;
+                $consulta="CREATE TABLE $nombreTabla ( nombreProd VARCHAR(25),
+                                                                           cantidad   INT(255),
+                                                                           precio     INT(25)     )";
+                $this->pdo->query($consulta);
             } catch (Exception $e) {
                 die($e->getMessage());                
             }

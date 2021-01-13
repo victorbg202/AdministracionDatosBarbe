@@ -16,13 +16,7 @@
         //Insertar usuario
         public function compCarta(Carta $c) {
             try {
-                $consulta="INSERT INTO usuarios(nombre, apellido, correo, contrasena) VALUES (?,?,?,?);";
-                $this->pdo->prepare($consulta)->execute(array(
-                    
-                    
-                    
-                    
-                ));
+                
             } catch (Exception $e) {
                 die($e->getMessage());
             }

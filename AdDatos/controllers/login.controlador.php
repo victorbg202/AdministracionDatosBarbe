@@ -66,7 +66,6 @@ class LoginControlador
         if (($_POST['nombre'] != "" && $_POST['apellido'] != "" && $_POST['apellido'] != "" &&
             $_POST['correo'] != "" && $_POST['contrasena'] != "" && $_POST['confContrasena'] != "") && ($_POST['contrasena'] == $_POST['confContrasena'])) {
 
-            $usu->setId(intval($_POST['id']));
             $usu->setNombre($_POST['nombre']);
             $usu->setApellido($_POST['apellido']);
             $usu->setCorreo($_POST['correo']);
@@ -76,13 +75,13 @@ class LoginControlador
             echo '<script>
                         alert("Usuario creado"); 
                       </script>';
-            header("location: inicio");
+            require_once "views/usuario/login.php";
         } else {
             $err = "Las contraseñas no coinciden";
             require_once "views/usuario/login.php";
         }
 
-        //Crear tabla para el carrito carrito+$_SESSION["name"]
+        //Crear tabla para el carrito carrito
         $this->modelo->CrearCarrito($_POST['nombre']);
     }
 
