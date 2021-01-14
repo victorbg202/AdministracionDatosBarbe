@@ -31,7 +31,8 @@
     <?php foreach ($this->modelo->ListarProductos() as $prod):?>
       <article class="card card--1">
         <div class="card__info-hover">
-          <button class="btn btn-successful">Añadir al carrito</button>
+          <?php $nombreTabla = 'carrito'.$_SESSION['name'] ?>
+          <a class="btn btn-successful" href="?c=carta&a=AñadirProducto($_SESSION['name'])">Añadir al carrito</a>
         </div>
         <div class="card__img"></div>
         <a href="#" class="card_link">

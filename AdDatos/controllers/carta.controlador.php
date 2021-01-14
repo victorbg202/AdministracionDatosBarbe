@@ -40,6 +40,13 @@
             require_once "views/productos/cartaProductos.php";
             require_once 'views/usuario/footer.php';
         }
+        
+        public function AñadirProducto($nombre) {
+            $prod = new Carta;
+            $prod->setNombreProd();
+            $prod->setPrecioProd();
+            $this->modelo->AñadirProd($nombre, $prod);
+        }
 
     }
 

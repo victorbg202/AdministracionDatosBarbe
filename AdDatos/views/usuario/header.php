@@ -41,7 +41,9 @@
         <li class="nav-item">
           <a class="nav-link" href="<?=$nombreUrl?>"><?=$nombre?></a>
         </li>
-        <a href="?c=carta&a=Inicio"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+        <?php if(isset($_SESSION['name'])){ ?>
+          <a href="?c=carta&a=Inicio"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+        <?php }; ?>
       </ul>
     </div>
 </div>
