@@ -2,10 +2,10 @@
 
     class BasedeDatos {
         //Datos BBDD
-        const servidor = "localhost";
-        const usuariobd = "root";
-        const password = "";
-        const nombrebd = "admin-datos";
+        public const servidor = "localhost";
+        public const usuariobd = "root";
+        public const password = "";
+        public const nombrebd = "admin-datos";
 
         //Conexion con la BBDD
         public static function Conectar() {

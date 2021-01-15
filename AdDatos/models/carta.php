@@ -5,6 +5,7 @@
         //Variables Carta
         private $nombreProd;
         private $precioProd;
+        private $cantidad;
 
         //Constructor Carta
         public function __construct() {
@@ -44,13 +45,13 @@
         //}
 
         //Añadir producto al carrito
-        public function AñadirProd($nombre, Carta $p) {
+        public function AñadirProd(Carta $c) {
             try {
-                $nombreTabla = "carrito".$nombre;
+                $nombreTabla = "carrito".$_SESSION['name'];
                 $consulta=$this->pdo->prepare("INSERT INTO $nombreTabla(nombreProd, cantidad, precio) VALUES (?, 1, ?);");
                 $this->pdo->prepare($consulta)->execute(array(
-                    $p->getNombreProd(),
-                    $p->getPrecioProd()
+                    $c->getNombreProd(),
+                    $c->getPrecioProd()
                 ));
             } catch (Exception $e) {
                 die($e->getMessage());
@@ -81,6 +82,14 @@
 
         public function setPrecioProd($precioProd) {
             $this->precioProd = $precioProd;
+        } 
+
+        public function getCantidad() {
+            return $this->cantidad;
+        }
+
+        public function setCantidad($cantidad) {
+            $this->cantidad = $cantidad;
         } 
     }
 

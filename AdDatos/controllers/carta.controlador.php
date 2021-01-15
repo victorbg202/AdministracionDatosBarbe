@@ -41,11 +41,11 @@
             require_once 'views/usuario/footer.php';
         }
         
-        public function AñadirProducto($nombre) {
-            $prod = new Carta;
-            $prod->setNombreProd();
-            $prod->setPrecioProd();
-            $this->modelo->AñadirProd($nombre, $prod);
+        public function AnadirProducto() {
+            $c = new Carta;
+            $c->setNombreProd($_POST['nombre']);
+            $c->setPrecioProd($_POST['precio']);
+            $this->modelo->AñadirProd($c);
         }
 
     }

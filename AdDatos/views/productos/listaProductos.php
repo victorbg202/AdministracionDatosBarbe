@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="assets/css/productos/listaProd.css">
-
 <!-- Titulo -->
 <h1>Tienda</h1>
 
@@ -27,24 +26,20 @@
 
 <!-- Seccion de productos -->
 <div class="container">
-  <section class=" card-deck">  
-    <?php foreach ($this->modelo->ListarProductos() as $prod):?>
-      <article class="card card--1">
-        <div class="card__info-hover">
-          <?php $nombreTabla = 'carrito'.$_SESSION['name'] ?>
-          <a class="btn btn-successful" href="?c=carta&a=AñadirProducto($_SESSION['name'])">Añadir al carrito</a>
-        </div>
-        <div class="card__img"></div>
-        <a href="#" class="card_link">
-          <div class="card__img--hover"></div>
-        </a>
-        <div class="card__info">
-          <span class="card__category"> Recipe</span>
-          <h3 class="card__title"><?=$prod->nombre ?></h3>
-          <span class="card__by">by <a href="#" class="card__author" title="author">Celeste Mills</a></span>
-        </div>
-      </article>
-    <?php endforeach; ?>
+  <section class="card-deck">  
+      <?php foreach ($this->modelo->ListarProductos() as $prod):?>
+        <form class="card card--1" name="prodForm" id="prodForm" action="?c=tienda&a=AnadirProducto"  method="POST">
+          <button type="submit" class="btn btn-primary">Añadir al carrito</button>
+          <div class="card__img"></div>
+          <div class="card__info">
+            <span class="card__category"> Recipe</span>
+            <h3 class="card__title"><?=$prod->nombre ?></h3>
+            <span class="card__by"><?=$prod->precio ?> <a href="#" class="card__author" title="author">€</a></span>
+          </div>
+          <input name="nombre" type="hidden" value="<?=$prod->nombre ?>">
+          <input name="precio" type="hidden" value="<?=$prod->precio ?>">
+        </form>
+      <?php endforeach; ?>
   </section>
 </div>
 <br>

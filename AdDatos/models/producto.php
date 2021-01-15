@@ -1,5 +1,6 @@
 <?php
 
+    require "models/carta.php";
     class Producto {
         //
         private $pdo;
@@ -117,6 +118,36 @@
                 $p->setDesc($r->descripcion);
                 $p->setPrecio($r->precio);
                 return $p;
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        //Añadir producto al carrito
+        public function AnadirProd() {
+            try {
+                $conn = new mysqli(BasedeDatos::servidor, BasedeDatos::usuariobd, BasedeDatos::password, BasedeDatos::nombrebd);
+                $nombreT=$_SESSION['name'];
+                $nombreTabla = "carrito".$nombreT;
+                $nombre = $this->getNombre();
+                $precio = $this->getPrecio();
+                $sql = "INSERT INTO $nombreTabla (nombreProd, precio) VALUES ( '$nombre', $precio);";
+                $conn->query($sql);
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        //Borrar producto al carrito
+        public function BorrarProd() {
+            try {
+                $conn = new mysqli('localhost', 'root', '', 'admin-datos');
+                $nombreT=$_SESSION['name'];
+                $nombreTabla = "carrito".$nombreT;
+                $nombre = $this->getNombre();
+                $precio = $this->getPrecio();
+                $sql = "DELETE FROM $nombreTabla WHERE nombreProd = '$nombre';";
+                $conn->query($sql);
             } catch (Exception $e) {
                 die($e->getMessage());
             }

@@ -36,6 +36,13 @@
             require_once 'views/usuario/footer.php';
         }
 
+        public function AnadirProducto() {
+            $this->modelo->setNombre($_POST['nombre']);
+            $this->modelo->setPrecio($_POST['precio']);
+            $this->modelo->AnadirProd();
+            $this->Inicio();
+        }
+
     }
 
 ?>
