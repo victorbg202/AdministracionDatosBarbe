@@ -3,6 +3,7 @@
     class Carta {
         
         //Variables Carta
+        private $id;
         private $nombreProd;
         private $precioProd;
         private $cantidad;
@@ -33,39 +34,14 @@
             }
         }
 
-        //Eliminar producto del carrito
-        //public function EliminarProductoCarrito($nombre, $nombreProd) {
-        //    try {
-        //        $nombreTabla = "carrito".$nombre;
-        //        $consulta="DELETE FROM $nombreTabla WHERE nombreProd = '$nombreProd'";
-        //        $this->pdo->prepare($consulta)->execute();
-        //    } catch (Exception $e) {
-        //        die($e->getMessage());
-        //    }
-        //}
-
-        //Añadir producto al carrito
-        public function AñadirProd(Carta $c) {
-            try {
-                $nombreTabla = "carrito".$_SESSION['name'];
-                $consulta=$this->pdo->prepare("INSERT INTO $nombreTabla(nombreProd, cantidad, precio) VALUES (?, 1, ?);");
-                $this->pdo->prepare($consulta)->execute(array(
-                    $c->getNombreProd(),
-                    $c->getPrecioProd()
-                ));
-            } catch (Exception $e) {
-                die($e->getMessage());
-            }
-        }
-
 
         //GETTERs y SETTERs
         public function getId() {
-            return $this->id_usuario;
+            return $this->id;
         }
 
-        public function setId($id_usuario) {
-            $this->id_usuario = $id_usuario;
+        public function setId($id) {
+            $this->id = $id;
         } 
         
         public function getNombreProd() {

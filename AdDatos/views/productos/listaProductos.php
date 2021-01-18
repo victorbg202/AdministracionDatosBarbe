@@ -29,7 +29,9 @@
   <section class="card-deck">  
       <?php foreach ($this->modelo->ListarProductos() as $prod):?>
         <form class="card card--1" name="prodForm" id="prodForm" action="?c=tienda&a=AnadirProducto"  method="POST">
-          <button type="submit" class="btn btn-primary">Añadir al carrito</button>
+          <?php if(isset($_SESSION['name'])) {?>
+            <button class="btn btn-primary">Añadir al carrito</button>
+          <?php };?>
           <div class="card__img"></div>
           <div class="card__info">
             <span class="card__category"> Recipe</span>

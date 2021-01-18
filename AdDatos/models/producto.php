@@ -139,15 +139,24 @@
         }
 
         //Borrar producto al carrito
-        public function BorrarProd() {
+        public function EliminarProd($id) {
             try {
-                $conn = new mysqli('localhost', 'root', '', 'admin-datos');
                 $nombreT=$_SESSION['name'];
                 $nombreTabla = "carrito".$nombreT;
-                $nombre = $this->getNombre();
-                $precio = $this->getPrecio();
-                $sql = "DELETE FROM $nombreTabla WHERE nombreProd = '$nombre';";
-                $conn->query($sql);
+                $consulta="DELETE FROM $nombreTabla WHERE idProdCarrito = ?;";
+                $this->pdo->prepare($consulta)->execute(array($id));
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        //Vaciar carrito
+        public function EliminarCarrito() {
+            try {
+                $nombreT=$_SESSION['name'];
+                $nombreTabla = "carrito".$nombreT;
+                $consulta="DELETE FROM $nombreTabla";
+                $this->pdo->prepare($consulta)->execute();
             } catch (Exception $e) {
                 die($e->getMessage());
             }

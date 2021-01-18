@@ -47,9 +47,12 @@
         public function CrearCarrito($nombre) {
             try {
                 $nombreTabla = 'carrito'.$nombre;
-                $consulta="CREATE TABLE $nombreTabla ( nombreProd VARCHAR(25),
-                                                                           cantidad   INT(255),
-                                                                           precio     INT(25)     )";
+                $consulta="CREATE TABLE $nombreTabla ( idProdCarrito INT NOT NULL AUTO_INCREMENT,
+                                                       nombreProd VARCHAR(25),
+                                                       cantidad   INT(255),
+                                                       precio     INT(25),
+                                                       PRIMARY KEY (idProdCarrito)     );";
+                                                       
                 $this->pdo->query($consulta);
             } catch (Exception $e) {
                 die($e->getMessage());                

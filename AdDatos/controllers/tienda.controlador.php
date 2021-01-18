@@ -43,6 +43,16 @@
             $this->Inicio();
         }
 
+        public function EliminarProducto() {
+            $this->modelo->EliminarProd($_GET['id']);
+            header("location:?c=carta&a=Inicio");
+        }
+
+        public function EliminarTodoCarrito() {
+            $this->modelo->EliminarCarrito();
+            header("location:?c=tienda&a=Inicio");
+        }
+
     }
 
 ?>
