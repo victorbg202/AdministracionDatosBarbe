@@ -26,7 +26,7 @@
 
 <!-- Seccion de productos -->
 <div class="container">
-  <section class="card-deck">  
+  <section class="card-group">  
       <?php foreach ($this->modelo->ListarProductos() as $prod):?>
         <form class="card card--1" name="prodForm" id="prodForm" action="?c=tienda&a=AnadirProducto"  method="POST">
           <?php if(isset($_SESSION['name'])) {?>

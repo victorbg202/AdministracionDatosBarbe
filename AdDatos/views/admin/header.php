@@ -21,7 +21,7 @@
           <a class="nav-item nav-link" href="?c=producto&a=Inicio">Inicio <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="?c=producto&a=Tprod">Productos</a>
           <a class="nav-item nav-link" href="?c=usuario&a=Inicio">Usuarios</a>
-          <a class="nav-item nav-link" href="?c=login&a=LogOut">Log out</a>
+          <a class="nav-item nav-link" href="?c=login&a=LogOutPopUp">Log out</a>
         </div>
       </div>
     </nav>

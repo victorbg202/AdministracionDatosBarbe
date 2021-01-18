@@ -51,6 +51,7 @@
                                                        nombreProd VARCHAR(25),
                                                        cantidad   INT(255),
                                                        precio     INT(25),
+                                                       urlimg VARCHAR(255),
                                                        PRIMARY KEY (idProdCarrito)     );";
                                                        
                 $this->pdo->query($consulta);

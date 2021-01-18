@@ -15,7 +15,7 @@
 
         public function Inicio() {
             $titulo = "Logout";
-            $url = "?c=login&a=LogOut";
+            $url = "?c=login&a=LogOutPopUp";
             $urlCarta="?c=carta&a=Inicio";
             $nombre = "";
             if (isset($_GET['categoria'])) { 

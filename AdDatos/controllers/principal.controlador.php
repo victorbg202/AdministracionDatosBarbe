@@ -11,7 +11,7 @@
 
         public function Inicio() {
             $titulo = "Logout";
-            $url = "?c=login&a=LogOut";
+            $url = "?c=login&a=LogOutPopUp";
             $nombre = "";
 
             if (isset($_SESSION["loged"])) {     

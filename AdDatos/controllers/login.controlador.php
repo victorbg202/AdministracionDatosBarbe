@@ -85,8 +85,11 @@ class LoginControlador
         $this->modelo->CrearCarrito($_POST['nombre']);
     }
 
-    public function LogOut()
-    {
+    public function LogOutPopUp() {
+        require_once "views/usuario/popUpLogout.php";
+    }
+
+    public function LogOut() {
         @session_start();
         session_destroy();
         echo '<script> window.location = "inicio"; </script>';
