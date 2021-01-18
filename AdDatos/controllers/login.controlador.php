@@ -27,9 +27,7 @@ class LoginControlador
             $valor = $_POST["ingUsuario"];
             $respuesta = loginRegistrar::MostrarUsuarios($tabla, $item, $valor);
             if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&  preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"])) {
-                    
-            $contra = hash('sha512', $_POST['ingPassword']);
-                    if ($respuesta["nombre"] == $_POST["ingUsuario"] && $contra == $respuesta["contrasena"]) {
+                    if ($respuesta["nombre"] == $_POST["ingUsuario"] && password_verify($_POST['ingPassword'], $respuesta["contrasena"])) {
                         if ($respuesta["tipo"] == "admin") {
                             $_SESSION["loged"] = true;
                             $_SESSION["id"] = $respuesta["id_usuario"];
@@ -67,13 +65,11 @@ class LoginControlador
         $usu = new loginRegistrar;
         if (($_POST['nombre'] != "" && $_POST['apellido'] != "" && $_POST['apellido'] != "" &&
             $_POST['correo'] != "" && $_POST['contrasena'] != "" && $_POST['confContrasena'] != "") && ($_POST['contrasena'] == $_POST['confContrasena'])) {
-            
-            $hash=hash('sha512', $_POST['contrasena']);
-            
+        
             $usu->setNombre($_POST['nombre']);
             $usu->setApellido($_POST['apellido']);
             $usu->setCorreo($_POST['correo']);
-            $usu->setContrasena($hash);
+            $usu->setContrasena(password_hash($_POST['contrasena'], PASSWORD_DEFAULT));
 
             $this->modelo->Insertar($usu);
             echo '<script>
